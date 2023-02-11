@@ -8,7 +8,7 @@
                 @csrf
                 <div class="mb-3">
                     <label class="form-label">Nama Lengkap</label>
-                    <input type="text" class="form-control" name="nama_penumpang" placeholder="...">
+                    <input type="text" class="form-control" name="nm_pengguna" placeholder="...">
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Username</label>
@@ -21,23 +21,8 @@
                     </div>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">Alamat Lengkap</label>
-                    <textarea class="form-control" name="alamat_penumpang" cols="30" rows="3" placeholder="..."></textarea>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Tanggal Lahir</label>
-                    <input type="date" class="form-control" name="tanggal_lahir" placeholder="...">
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Jenis Kelamin</label>
-                    <select name="jenis_kelamin" class="form-control">
-                        <option value="Laki-Laki">Laki-Laki</option>
-                        <option value="Perempuan">Perempuan</option>
-                    </select>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Telepon</label>
-                    <input type="text" class="form-control" name="telepon" placeholder="...">
+                    <label class="form-label">Status</label>
+                    <input type="text" class="form-control" name="status" placeholder="...">
                 </div>
                 <div class="form-footer">
                     <button type="submit" class="btn btn-primary w-100">Daftar</button>

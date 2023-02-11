@@ -16,8 +16,9 @@ class CreatePengguna extends Migration
         Schema::create('pengguna', function (Blueprint $table) {
             $table->id('id_pengguna');
             $table->string('nm_pengguna');
+            $table->string('username');
             $table->string('password');
-            $table->string('hak_akses');
+            $table->integer('hak_akses');
             $table->string('status');
             $table->timestamps();
         });

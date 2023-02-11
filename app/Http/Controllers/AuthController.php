@@ -32,12 +32,14 @@ class AuthController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'username' => 'required|unique:pengguna'
+            'username' => 'required|unique:pengguna',
+            'password' => 'required',
         ]);
 
         $pengguna = new PenggunaModel();
-        $pengguna->fill($request->except('id_penupang', 'password'));
+        $pengguna->fill($request->except('password'));
         $pengguna->password = Hash::make($request->password);
+        $pengguna->hak_akses = 2;
         $pengguna->save();
 
         $redirectTo = $this->redirectTo($pengguna, $request);
