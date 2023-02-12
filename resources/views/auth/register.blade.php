@@ -25,7 +25,7 @@
                     <input type="text" class="form-control" name="status" placeholder="...">
                 </div>
                 <div class="form-footer">
-                    <button type="submit" class="btn btn-primary w-100">Daftar</button>
+                    <button type="submit" class="btn btn-dark w-100">Daftar</button>
                 </div>
             </form>
         </div>

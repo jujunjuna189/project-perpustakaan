@@ -20,10 +20,10 @@ class CreateAnggota extends Migration
             $table->string('tp_lahir');
             $table->date('tgl_lahir');
             $table->text('alamat');
-            $table->string('no_hp');
-            $table->string('jns_id');
-            $table->string('no_id');
-            $table->string('jns_anggota');
+            $table->string('no_hp')->nullable();
+            $table->string('jns_id')->nullable();
+            $table->string('no_id')->nullable();
+            $table->string('jns_anggota')->nullable();
             $table->string('status');
             $table->integer('jml_pjm');
             $table->timestamps();

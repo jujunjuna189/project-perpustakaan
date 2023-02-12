@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AnggotaModel;
+use App\Models\KoleksiModel;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -19,11 +21,20 @@ class DashboardController extends Controller
 
     public function forUser(Request $request)
     {
-        return view('dashboard.index');
+        $koleksi = KoleksiModel::all();
+
+        $data['koleksi'] = $koleksi;
+        return view('dashboard.index', $data);
     }
 
     public function forOperator()
     {
-        return view('dashboard.index_admin');
+        $anggota = AnggotaModel::count();
+        $koleksi = KoleksiModel::count();
+
+        $data['anggota'] = $anggota;
+        $data['koleksi'] = $koleksi;
+
+        return view('dashboard.index_admin', $data);
     }
 }

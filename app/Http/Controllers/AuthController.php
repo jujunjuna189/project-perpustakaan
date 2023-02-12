@@ -42,6 +42,8 @@ class AuthController extends Controller
         $pengguna->hak_akses = 2;
         $pengguna->save();
 
+        $tambah_anggota = (new AnggotaController)->storeDumy($request);
+
         $redirectTo = $this->redirectTo($pengguna, $request);
         return $redirectTo;
     }
