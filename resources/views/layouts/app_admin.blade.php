@@ -13,7 +13,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Dashboard - Tabler - Premium and Open Source dashboard template with responsive and high quality UI.</title>
+    <title>Perpustakaan</title>
     <!-- CSS files -->
     <link href="{{ asset('assets/css/tabler.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/css/tabler-flags.min.css') }}" rel="stylesheet" />
@@ -33,7 +33,7 @@
     <script src="{{ asset('assets/js/demo-theme.min.js') }}"></script>
     <div class="page">
         <!-- Sidebar -->
-        <aside class="navbar navbar-vertical navbar-dark @if(session('user')->id_level == 3) d-none @else navbar-expand-lg @endif">
+        <aside class="navbar navbar-vertical navbar-dark @if(session('user')->hak_akses == 2) d-none @else navbar-expand-lg @endif">
             <div class="container-fluid">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-menu">
                     <span class="navbar-toggler-icon"></span>
@@ -185,7 +185,7 @@
                         <a href="#" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown" aria-label="Open user menu">
                             <span class="avatar avatar-sm" style="background-image: url(./static/avatars/000m.jpg)"></span>
                             <div class="d-none d-xl-block ps-2">
-                                <div>{{ session('user')->nama_lengkap }}</div>
+                                <div>{{ session('user')->nm_pengguna }}</div>
                                 <div class="mt-1 small text-muted">UI Designer</div>
                             </div>
                         </a>
@@ -211,7 +211,7 @@
                                 </span>
                             </a>
                         </li>
-                        @if(session('user')->id_level == 1)
+                        @if(session('user')->hak_akses == 2)
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
                                 <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
@@ -229,13 +229,13 @@
                             <div class="dropdown-menu">
                                 <div class="dropdown-menu-columns">
                                     <div class="dropdown-menu-column">
-                                        <a class="dropdown-item ps-2" href="{{ route('tipe-transportasi') }}">
+                                        <a class="dropdown-item ps-2" href="#">
                                             <span class="ps-4">Tipe Trasportasi</span>
                                         </a>
-                                        <a class="dropdown-item ps-2" href="{{ route('transportasi') }}">
+                                        <a class="dropdown-item ps-2" href="#">
                                             <span class="ps-4">Transportasi</span>
                                         </a>
-                                        <a class="dropdown-item ps-2" href="{{ route('rute') }}">
+                                        <a class="dropdown-item ps-2" href="#">
                                             <span class="ps-4">Rute</span>
                                         </a>
                                     </div>
@@ -243,9 +243,9 @@
                             </div>
                         </li>
                         @endif
-                        @if(session('user')->id_level != 3)
+                        @if(session('user')->hak_akses != 2)
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('pemesanan') }}">
+                            <a class="nav-link" href="#">
                                 <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/checkbox -->
                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trolley" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -262,7 +262,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('laporan') }}">
+                            <a class="nav-link" href="#">
                                 <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/checkbox -->
                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clipboard-data" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -412,8 +412,8 @@
                         <a href="#" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown" aria-label="Open user menu">
                             <span class="avatar avatar-sm" style="background-image: url(./static/avatars/000m.jpg)"></span>
                             <div class="d-none d-xl-block ps-2">
-                                <div>{{ session('user')->nama_lengkap }}</div>
-                                <div class="mt-1 small text-muted">{{ App\Models\GlobalModel::getLevel(session('user')->id_level) }}</div>
+                                <div>{{ session('user')->nm_pengguna }}</div>
+                                <div class="mt-1 small text-muted">{{ App\Models\GlobalModel::getLevel(session('user')->hak_akses) }}</div>
                             </div>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
